@@ -10,5 +10,5 @@ scikit-learn>=0.18
 pandas>=0.19
 tensorflow==2.2.0
 keras==2.3.1
-re==2.2.1
+re>=2.0
 lemmagen3>=0.1
