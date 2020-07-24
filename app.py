@@ -45,7 +45,7 @@ def predict():
 					print ('➤ Comment is',k)
 				    else:
 					pass
-	my_predictions=message(output(data))
+		my_predictions=message(output(data))
 	return render_template('result.html',prediction = my_predictions)
 if __name__ == '__main__':
 	app.run(debug=True)
