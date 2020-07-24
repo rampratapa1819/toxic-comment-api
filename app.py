@@ -26,7 +26,10 @@ def predict():
 		padded=pad_sequences(seq,maxlen=100)
 		pred=save.predict(padded)
 		pred = np.round(pred)
-		if pred>0:
+		lst=list(pred)
+		for i in lst:
+			lst1=i+i
+		if lst1>2.94:
 			my_prediction='Toxic'
 		else:
 			my_prediction='Non-Toxic'
