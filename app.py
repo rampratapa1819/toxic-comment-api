@@ -26,7 +26,10 @@ def predict():
 		padded=pad_sequences(seq,maxlen=100)
 		pred=save.predict(padded)
 		pred = np.round(pred)
-		my_predictions=messag(output(data))
-	return render_template('result.html',prediction = my_predictions)
+		if pred>0:
+			my_prediction='Toxic'
+		else:
+			my_prediction='Non-Toxic'
+	return render_template('result.html',prediction = my_prediction)
 if __name__ == '__main__':
 	app.run(debug=True)
