@@ -2,9 +2,7 @@
 from flask import Flask,render_template,url_for,request
 import pandas as pd
 import numpy as np
-import tensorflow as tf
 from keras.preprocessing.text import Tokenizer
-from lemmagen3 import Lemmatizer
 from keras.preprocessing.sequence import pad_sequences
 import pickle
 
@@ -49,4 +47,4 @@ def predict():
 					pass
 	return render_template('result.html',prediction = message(output(data)))
 if __name__ == '__main__':
-	app.run(debug=True
+	app.run(debug=True)
