@@ -20,8 +20,8 @@ def home():
 def predict():
 
 	if request.method == 'POST':
-		messag = request.form['message']
-        	data = [messag]
+		message = request.form['message']
+        	data = [message]
 		def output(txt_values):
 			clean = [ ]
 			for i in txt_values:
@@ -31,7 +31,7 @@ def predict():
 			pred=save.predict(padded)
 			pred = np.round(pred)
 			return (pred, txt_values)
-		def message(prediction):
+		def messag(prediction):
 			pred, txt_values = prediction
 			toxicity = ['Toxic','Severe_Toxic','Obscene','Threat','Insult','Identity_Hate']
 			for i, comment in zip(pred, txt_values):
@@ -45,7 +45,7 @@ def predict():
 					print ('➤ Comment is',k)
 				    else:
 					pass
-		my_predictions=message(output(data))
+		my_predictions=messag(output(data))
 	return render_template('result.html',prediction = my_predictions)
 if __name__ == '__main__':
 	app.run(debug=True)
