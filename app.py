@@ -22,29 +22,10 @@ def predict():
 	if request.method == 'POST':
 		message = request.form['message']
         	data = [message]
-		def output(txt_values):
-			clean = [ ]
-			for i in txt_values:
-			    clean.append(i))
-			seq=tokenizer.texts_to_sequences(clean)
-			padded=pad_sequences(seq,maxlen=100)
-			pred=save.predict(padded)
-			pred = np.round(pred)
-			return (pred, txt_values)
-		def messag(prediction):
-			pred, txt_values = prediction
-			toxicity = ['Toxic','Severe_Toxic','Obscene','Threat','Insult','Identity_Hate']
-			for i, comment in zip(pred, txt_values):
-			    print ('\n')
-			    print (comment)
-			    if i.any() == 0:
-				print ('➤ Comment is Neutral')
-			    else:
-				for j, k in zip(i, toxicity) :
-				    if j == 1:
-					print ('➤ Comment is',k)
-				    else:
-					pass
+		seq=tokenizer.texts_to_sequences(data)
+		padded=pad_sequences(seq,maxlen=100)
+		pred=save.predict(padded)
+		pred = np.round(pred)
 		my_predictions=messag(output(data))
 	return render_template('result.html',prediction = my_predictions)
 if __name__ == '__main__':
