@@ -1,6 +1,7 @@
 from flask import Flask,render_template,url_for,request
 import pandas as pd 
-
+from keras.preprocessing.text import Tokenizer
+from keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # load the model from disk
