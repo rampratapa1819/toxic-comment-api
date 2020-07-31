@@ -21,7 +21,6 @@ def predict():
 		message = request.form['message']
 		data = [message]
 		seq=tokenizer.texts_to_sequences(data)
-		seq=seq.toarray()
     		padded=pad_sequences(seq,maxlen=100)
     		pred=save.predict(padded)
     		pred = np.round(pred)
