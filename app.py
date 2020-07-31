@@ -23,15 +23,13 @@ def predict():
 		seq=tokenizer.texts_to_sequences(data)
     		padded=pad_sequences(seq,maxlen=100)
     		pred=save.predict(padded)
-    		pred = list(np.round(pred))
-		out=[]
-		for i in pred:
-			if i==0:
-				out.append('Non-Toxic')
-			else:
-				out.append('Toxic')
+    		pred = np.round(pred)
+		if pred==0:
+			n='Non-Toxic'
+		else:
+			n='Toxic'
     
-	return render_template('result.html',prediction = out)
+	return render_template('result.html',prediction = n)
 
 
 
