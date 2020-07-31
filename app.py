@@ -5,9 +5,9 @@ from keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # load the model from disk
-filename = 'nlp_model.pkl'
+filename = 'model_binary.pickle'
 save = pickle.load(open(filename, 'rb'))
-tokenizer = pickle.load(open('tranform.pkl','rb'))
+tokenizer = pickle.load(open('tokenizer_binary.pickle','rb'))
 app = Flask(__name__)
 
 @app.route('/')
