@@ -53,7 +53,7 @@ def predict():
             	pred=save.predict(padded)
             	pred = np.round(pred)
             	return pred
-		my_predictions=output(data)
+		my_predictions=list(output(data))
 		out=[]
 		for i in my_predictions:
 			if i==0:
