@@ -1,1 +1,1 @@
-# toxic-comment-app
+# toxic-comment-api
