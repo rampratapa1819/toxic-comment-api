@@ -20,7 +20,7 @@ def predict():
 	if request.method == 'POST':
 		message = request.form['message']
 		data = [message]
-		seq=tokenizer.texts_to_sequences(clean)
+		seq=tokenizer.texts_to_sequences(data)
     		padded=pad_sequences(seq,maxlen=100)
     		pred=save.predict(padded)
     		pred = list(np.round(pred))
