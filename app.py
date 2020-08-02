@@ -25,15 +25,8 @@ def predict():
 		data = [message]
 		vect = cv.transform(data).toarray()
 		predictions = clf.predict(vect)
-		predictions = np.round(predictions)
-		my_prediction=list(prediction)
-    		output =[]
-    		for i in my_prediction:
-        		if i==0:
-            			output.append('Not Toxic')
-        		else:
-            			output.append('Toxic')
+		my_predictions = np.round(predictions)
 
-	return render_template('result.html',prediction = output)
+	return render_template('result.html',prediction = my_predictions)
 if __name__ == '__main__':
 	app.run(debug=True)
