@@ -53,8 +53,17 @@ def predict():
 		message = request.form['message']
 		data = [message]
 		vect = cv.transform(data).toarray()
-		my_prediction = clf.predict(vect)
-	return render_template('result.html',prediction = my_prediction)
+		predictions = clf.predict(vect)
+		predictions = np.round(predictions)
+		my_prediction=list(prediction)
+    		output =[]
+    		for i in prediction:
+        		if i==0:
+            			output.append('Not Toxic')
+        		else:
+            			output.append('Toxic')
+
+	return render_template('result.html',prediction = output)
 
 
 
