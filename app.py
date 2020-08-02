@@ -6,9 +6,9 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
 # load the model from disk
-filename = 'nlp_model.pkl'
+filename = 'nlp_model (1).pkl'
 clf = pickle.load(open(filename, 'rb'))
-cv=pickle.load(open('countvect.pkl','rb'))
+cv=pickle.load(open('countvect (1).pkl','rb'))
 
 
 app = Flask(__name__)
