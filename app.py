@@ -5,9 +5,12 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
 # load the model from disk
-filename = 'model.pickle'
-clf = pickle.load(open(filename, 'rb'))
-cv=pickle.load(open('countvect.pickle','rb'))
+with open('model.pickle','rb') as handle:
+    clf=pickle.load(handle)
+with open('countvect.pickle','rb') as handle:
+    cv=pickle.load(handle)
+
+
 app = Flask(__name__)
 
 @app.route('/')
